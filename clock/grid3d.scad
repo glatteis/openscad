@@ -97,6 +97,8 @@ module Grid3D(n, ppl, bw, dpth, eink, kabel, eink_w, mult) {
 wall_thickness = .5;
 Grid3D(11, 200 / 12, wall_thickness, 5, .3, 2, 10, 5);
 
+cube([2 - 0.4, (200/12) - wall_thickness - 0.6, 5 - 0.5]);
+
 /* translate([-wall_thickness, -wall_thickness, 10]) */
 /* Backplate(200/12, wall_thickness, .3); */
 
@@ -107,7 +109,6 @@ Grid3D(11, 200 / 12, wall_thickness, 5, .3, 2, 10, 5);
 
 /*
 // #####################
-
 
 s = ["ESKISTEFÜNF",
 "ZEHNVIERTEL",

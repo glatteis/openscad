@@ -1,5 +1,5 @@
-PRINTER_WIDTH = 10.2;
-PRINTER_DEPTH = 5.6;
+PRINTER_WIDTH = 10.4;
+PRINTER_DEPTH = 5.8;
 
 BOX_WIDTH = 11.2;
 BOX_DEPTH = 11.2;
@@ -8,6 +8,16 @@ BOX_HEIGHT = 7.2;
 BUTTON_DIAMETER = 1.9;
 
 WOOD_WIDTH = .4;
+
+// To export:
+
+// Comment this out
+3D();
+
+// Comment this in
+// projection() {
+//     2d();
+// }
 
 module Pins(length, wood_width, beginning, end) {
     for (i = [beginning : 4 : (length) / wood_width + end]) {
@@ -151,29 +161,25 @@ module 2D() {
 
     translate([BOX_WIDTH + WOOD_WIDTH * 3, 0, 0]) {
         color("yellow")
-        Front();
-    }
-
-    translate([BOX_WIDTH + WOOD_WIDTH * 3, BOX_WIDTH + WOOD_WIDTH * 3, 0]) {
-            color("green")
-            Back();
-    }
-
-    translate([2 * BOX_WIDTH + WOOD_WIDTH * 6, 0, 0]) {
-        color("orange")
         Left();
     }
 
-    translate([2 * BOX_WIDTH + WOOD_WIDTH * 6, BOX_WIDTH + WOOD_WIDTH * 3, 0]) {
-        color("pink")
+    translate([BOX_WIDTH + WOOD_WIDTH * 3, BOX_WIDTH + WOOD_WIDTH * 3, 0]) {
+        color("green")
         Right();
     }
+
+    translate([2 * BOX_HEIGHT + BOX_WIDTH + WOOD_WIDTH * 6, 0, 0]) {
+    // translate([0, 0, 0]) {
+        color("orange")
+        rotate([0, 0, 90])
+        Front();
+    }
+
+    translate([2 * BOX_HEIGHT + BOX_WIDTH + WOOD_WIDTH * 6, BOX_WIDTH + WOOD_WIDTH * 3, 0]) {
+    // translate([0, BOX_WIDTH + WOOD_WIDTH * 3, 0]) {
+        color("pink")
+        rotate([0, 0, 90])
+        Back();
+    }
 }
-
-3D();
-
-// Right();
-
-// projection() {
-//     2D();
-// }
